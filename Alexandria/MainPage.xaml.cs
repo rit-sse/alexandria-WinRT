@@ -18,13 +18,17 @@ using Windows.UI.Xaml.Navigation;
 namespace Alexandria
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// The home page for the application
     /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void GoToCheckout(object sender, RoutedEventArgs e){
+            this.Frame.Navigate(typeof(Checkout));
         }
     }
 }

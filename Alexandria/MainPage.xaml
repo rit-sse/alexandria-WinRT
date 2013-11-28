@@ -19,7 +19,7 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Check Out" HorizontalAlignment="Left" Margin="100,0,0,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Normal"/>
+        <Button Content="Check Out" HorizontalAlignment="Left" Margin="100,0,0,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Normal" Click="GoToCheckout"/>
         <Button Content="Check In" HorizontalAlignment="Right" Margin="0,0,100,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Normal"/>
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Welcome to Alexandria" VerticalAlignment="Top" Height="88" Width="792" Margin="287,177,287,0" FontSize="72"/>
     </Grid>

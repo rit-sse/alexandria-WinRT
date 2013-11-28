@@ -15,5 +15,6 @@
         <SolidColorBrush x:Key="ButtonPointerOverForegroundThemeBrush" Color="#FFFFFFFF" />
         <SolidColorBrush x:Key="ButtonPressedBackgroundThemeBrush" Color="#FF357EBD" />
         <SolidColorBrush x:Key="ButtonPressedForegroundThemeBrush" Color="#FFFFFFFF" />
+        <x:String x:Key="AppName">Alexandria</x:String>
     </Application.Resources>
 </Application>
