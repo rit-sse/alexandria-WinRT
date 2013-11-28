@@ -1,6 +1,6 @@
 ﻿<Page
     x:Name="pageRoot"
-    x:Class="Alexandria.Checkout"
+    x:Class="Alexandria.CheckIn"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -44,7 +44,7 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Height="209" VerticalAlignment="Top">
-            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Check Out Book" Margin="0,0,0,0" FontSize="50"/>
+            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Check In Book" Margin="0,0,0,0" FontSize="50"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -54,16 +54,14 @@
             <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,16,30,0">
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Height="58" Text="ISBN" FontSize="36" Margin="0,0,0,10"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Height="58" Text="Distributor PIN" FontSize="36" Margin="0,0,0,10"/>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Height="58" Text="Patron PIN" FontSize="36"/>
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <TextBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="677" Height="58" FontSize="36" Margin="0,0,0,10"/>
                 <PasswordBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="677" Height="58" FontSize="36" Margin="0,0,0,10"/>
-                <PasswordBox  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="677" Height="58" FontSize="36"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Content="Check Out" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light"/>
+            <Button Content="Check In" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light"/>
         </Grid>
     </Grid>
 </Page>

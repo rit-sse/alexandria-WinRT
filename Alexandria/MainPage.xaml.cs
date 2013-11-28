@@ -27,8 +27,14 @@ namespace Alexandria
             this.InitializeComponent();
         }
 
-        private void GoToCheckout(object sender, RoutedEventArgs e){
+        private void GoToCheckout(object sender, RoutedEventArgs e)
+        {
             this.Frame.Navigate(typeof(Checkout));
+        }
+
+        private void GoToCheckIn(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CheckIn));
         }
     }
 }
