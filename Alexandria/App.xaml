@@ -2,6 +2,18 @@
     x:Class="Alexandria.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Alexandria">
-
+    xmlns:local="using:Alexandria"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <SolidColorBrush x:Key="ButtonBackgroundThemeBrush" Color="#FF428BCA" />
+        <SolidColorBrush x:Key="ButtonBorderThemeBrush" Color="#33000000" />
+        <SolidColorBrush x:Key="ButtonDisabledBackgroundThemeBrush" Color="#66CACACA" />
+        <SolidColorBrush x:Key="ButtonDisabledBorderThemeBrush" Color="#1A000000" />
+        <SolidColorBrush x:Key="ButtonDisabledForegroundThemeBrush" Color="#66000000" />
+        <SolidColorBrush x:Key="ButtonForegroundThemeBrush" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="ButtonPointerOverBackgroundThemeBrush" Color="#FF357EBD" />
+        <SolidColorBrush x:Key="ButtonPointerOverForegroundThemeBrush" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="ButtonPressedBackgroundThemeBrush" Color="#FF357EBD" />
+        <SolidColorBrush x:Key="ButtonPressedForegroundThemeBrush" Color="#FFFFFFFF" />
+    </Application.Resources>
 </Application>

@@ -7,7 +7,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style x:Key="FrontPageButtonStyle" TargetType="ContentControl">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Height" Value="172"/>
+            <Setter Property="Width" Value="465"/> 
+            <Setter Property="FontSize" Value="72"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
 
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="Check Out" HorizontalAlignment="Left" Margin="100,0,0,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Normal"/>
+        <Button Content="Check In" HorizontalAlignment="Right" Margin="0,0,100,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Welcome to Alexandria" VerticalAlignment="Top" Height="88" Width="792" Margin="287,177,287,0" FontSize="72"/>
     </Grid>
 </Page>
