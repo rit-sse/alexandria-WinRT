@@ -108,10 +108,11 @@ namespace Alexandria
 
         private async void CheckOutBook(object sender, RoutedEventArgs e)
         {
-            CheckoutStruct checkout = new CheckoutStruct();
-            checkout.isbn = ISBN.Text;
-            checkout.patron_barcode = Patron.Password;
-            checkout.distributor_barcode = Distributor.Password;
+            Notice.Text = "Attempting Checkout...";
+            Dictionary<string, string> checkout = new Dictionary<string, string>();
+            checkout["isbn"] = ISBN.Text;
+            checkout["patron_barcode"] = Patron.Password;
+            checkout["distributor_barcode"] = Distributor.Password;
             string json = JsonConvert.SerializeObject(checkout);
             HttpClient client = new HttpClient();
             StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
@@ -120,24 +121,17 @@ namespace Alexandria
             ISBN.Text = "";
             Patron.Password = "";
             Distributor.Password = "";
-            if ((int)aResponse.StatusCode == 422)
-            {
-                Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                Notice.Text = "Uh Oh. You messed something up.";
-            }
-            else if ((int)aResponse.StatusCode == 201)
+            if ((int)aResponse.StatusCode == 201)
             {
                 Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);
                 Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.ForestGreen);
                 Notice.Text = "You succesfully checked out " + dictionary["title"] + "!";
             }
+            else
+            {
+                Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                Notice.Text = "Uh Oh. Something Went Wrong.";
+            }
         }
-    }
-
-    public struct CheckoutStruct
-    {
-        public string isbn { get; set; }
-        public string patron_barcode { get; set; }
-        public string distributor_barcode { get; set; }
     }
 }
