@@ -36,5 +36,15 @@ namespace Alexandria
         {
             this.Frame.Navigate(typeof(CheckIn));
         }
+
+        private void GoToAddBook(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GoToViewBooks(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

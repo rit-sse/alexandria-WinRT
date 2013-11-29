@@ -19,8 +19,26 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Check Out" HorizontalAlignment="Left" Margin="100,0,0,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Light" Click="GoToCheckout"/>
-        <Button Content="Check In" HorizontalAlignment="Right" Margin="0,0,100,177" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Light" Click="GoToCheckIn"/>
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Welcome to Alexandria" VerticalAlignment="Top" Height="88" Width="792" Margin="287,177,287,0" FontSize="72"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Welcome to Alexandria" VerticalAlignment="Center" Height="88" Width="792" FontSize="72"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Content="Check Out" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Light" Click="GoToCheckout"/>
+            <Button Grid.Row="0" Grid.Column="1" Content="Check In" VerticalAlignment="Center" HorizontalAlignment="Center"  Style="{StaticResource FrontPageButtonStyle}" FontWeight="Light" Click="GoToCheckIn"/>
+            <Button Grid.Row="1" Grid.Column="0" Content="Add Book" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Light" Click="GoToAddBook"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="View Books" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource FrontPageButtonStyle}" FontWeight="Light" Click="GoToViewBooks"/>
+        </Grid>
     </Grid>
 </Page>

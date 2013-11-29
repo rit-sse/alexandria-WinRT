@@ -6,15 +6,12 @@
     RequestedTheme="Light">
     <Application.Resources>
         <SolidColorBrush x:Key="ButtonBackgroundThemeBrush" Color="#FF428BCA" />
-        <SolidColorBrush x:Key="ButtonBorderThemeBrush" Color="#33000000" />
-        <SolidColorBrush x:Key="ButtonDisabledBackgroundThemeBrush" Color="#66CACACA" />
-        <SolidColorBrush x:Key="ButtonDisabledBorderThemeBrush" Color="#1A000000" />
-        <SolidColorBrush x:Key="ButtonDisabledForegroundThemeBrush" Color="#66000000" />
         <SolidColorBrush x:Key="ButtonForegroundThemeBrush" Color="#FFFFFFFF" />
         <SolidColorBrush x:Key="ButtonPointerOverBackgroundThemeBrush" Color="#FF357EBD" />
         <SolidColorBrush x:Key="ButtonPointerOverForegroundThemeBrush" Color="#FFFFFFFF" />
         <SolidColorBrush x:Key="ButtonPressedBackgroundThemeBrush" Color="#FF357EBD" />
         <SolidColorBrush x:Key="ButtonPressedForegroundThemeBrush" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="TextSelectionHighlightColorThemeBrush" Color="#FF357EBD"/>
         <x:String x:Key="AppName">Alexandria</x:String>
     </Application.Resources>
 </Application>
