@@ -44,7 +44,8 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Height="209" VerticalAlignment="Top">
-            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Check Out Book" Margin="0,0,0,0" FontSize="50"/>
+            <TextBlock Name="Notice" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Check Out Book" FontSize="50" Margin="505,0"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -57,13 +58,13 @@
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Height="58" Text="Patron PIN" FontSize="36"/>
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <TextBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="677" Height="58" FontSize="36" Margin="0,0,0,10"/>
-                <PasswordBox  HorizontalAlignment="Left" VerticalAlignment="Center" Width="677" Height="58" FontSize="36" Margin="0,0,0,10"/>
-                <PasswordBox  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="677" Height="58" FontSize="36"/>
+                <TextBox x:Name="ISBN"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="677" Height="58" FontSize="36" Margin="0,0,0,10"/>
+                <PasswordBox x:Name="Distributor"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="677" Height="58" FontSize="36" Margin="0,0,0,10"/>
+                <PasswordBox x:Name="Patron"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="677" Height="58" FontSize="36"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Content="Check Out" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light"/>
+            <Button x:Name="CheckOut" Content="Check Out" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="CheckOutBook"/>
         </Grid>
     </Grid>
 </Page>
