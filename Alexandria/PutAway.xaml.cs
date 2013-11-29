@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
@@ -94,6 +95,21 @@ namespace Alexandria
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             navigationHelper.OnNavigatedTo(e);
+            var dictionary = (Dictionary<string, Dictionary<string, string>>)e.Parameter;
+            Shelf.Text = "Shelf: " + dictionary["shelf"]["number"];
+            LeftTitle.Text = dictionary["left"]["title"];
+            LeftLCC.Text = dictionary["left"]["lcc"];
+            BitmapImage bitmapImageLeft = new BitmapImage();
+            LeftImage.Height = bitmapImageLeft.DecodePixelHeight = 250; 
+            bitmapImageLeft.UriSource = new Uri(dictionary["left"]["image"]);
+            LeftImage.Source = bitmapImageLeft;
+            
+            RightTitle.Text = dictionary["right"]["title"];
+            RightLCC.Text = dictionary["right"]["lcc"];
+            BitmapImage bitmapImageRight = new BitmapImage();
+            RightImage.Height = bitmapImageRight.DecodePixelHeight = 250;
+            bitmapImageRight.UriSource = new Uri(dictionary["right"]["image"]);
+            RightImage.Source = bitmapImageRight;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
