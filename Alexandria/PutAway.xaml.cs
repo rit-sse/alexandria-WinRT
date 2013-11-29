@@ -1,10 +1,8 @@
 ﻿using Alexandria.Common;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -23,7 +21,7 @@ namespace Alexandria
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class CheckIn : Page
+    public sealed partial class PutAway : Page
     {
 
         private NavigationHelper navigationHelper;
@@ -47,7 +45,7 @@ namespace Alexandria
         }
 
 
-        public CheckIn()
+        public PutAway()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -104,32 +102,5 @@ namespace Alexandria
         }
 
         #endregion
-
-        private async void CheckInBook(object sender, RoutedEventArgs e)
-        {
-            Notice.Text = "Attempting check in...";
-            Dictionary<string, string> checkout = new Dictionary<string, string>();
-            checkout["isbn"] = ISBN.Text;
-            checkout["patron_barcode"] = Patron.Password;
-            checkout["distributor_barcode"] = Distributor.Password;
-            string json = JsonConvert.SerializeObject(checkout);
-            HttpClient client = new HttpClient();
-            StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/check_in.json"), theContent);
-            string content = await aResponse.Content.ReadAsStringAsync();
-            ISBN.Text = "";
-            Patron.Password = "";
-            Distributor.Password = "";
-            if ((int)aResponse.StatusCode == 200)
-            {
-                Dictionary<string, Dictionary<string,string>> dictionary = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string,string>>>(content);
-                this.Frame.Navigate(typeof(PutAway), dictionary);
-            }
-            else
-            {
-                Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                Notice.Text = "Uh Oh. Something Went Wrong.";
-            }
-        }
     }
 }
