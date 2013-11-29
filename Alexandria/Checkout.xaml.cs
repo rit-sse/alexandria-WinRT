@@ -108,7 +108,7 @@ namespace Alexandria
 
         private async void CheckOutBook(object sender, RoutedEventArgs e)
         {
-            Notice.Text = "Attempting Checkout...";
+            Notice.Text = "Attempting check out...";
             Dictionary<string, string> checkout = new Dictionary<string, string>();
             checkout["isbn"] = ISBN.Text;
             checkout["patron_barcode"] = Patron.Password;
