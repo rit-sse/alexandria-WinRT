@@ -108,6 +108,7 @@ namespace Alexandria
 
         private async void CheckOutBook(object sender, RoutedEventArgs e)
         {
+            Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
             Notice.Text = "Attempting check out...";
             Dictionary<string, string> checkout = new Dictionary<string, string>();
             checkout["isbn"] = ISBN.Text;

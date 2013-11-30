@@ -107,12 +107,13 @@ namespace Alexandria
 
         private async void CheckInBook(object sender, RoutedEventArgs e)
         {
+            Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
             Notice.Text = "Attempting check in...";
-            Dictionary<string, string> checkout = new Dictionary<string, string>();
-            checkout["isbn"] = ISBN.Text;
-            checkout["patron_barcode"] = Patron.Password;
-            checkout["distributor_barcode"] = Distributor.Password;
-            string json = JsonConvert.SerializeObject(checkout);
+            Dictionary<string, string> checkin = new Dictionary<string, string>();
+            checkin["isbn"] = ISBN.Text;
+            checkin["patron_barcode"] = Patron.Password;
+            checkin["distributor_barcode"] = Distributor.Password;
+            string json = JsonConvert.SerializeObject(checkin);
             HttpClient client = new HttpClient();
             StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/check_in.json"), theContent);
