@@ -126,6 +126,9 @@
     <Compile Include="PutAway.xaml.cs">
       <DependentUpon>PutAway.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewBooks.xaml.cs">
+      <DependentUpon>ViewBooks.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -161,6 +164,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PutAway.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewBooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

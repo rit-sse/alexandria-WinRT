@@ -44,7 +44,7 @@ namespace Alexandria
 
         private void GoToViewBooks(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(ViewBooks));
         }
     }
 }

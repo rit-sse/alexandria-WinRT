@@ -12,6 +12,10 @@
         <SolidColorBrush x:Key="ButtonPressedBackgroundThemeBrush" Color="#FF357EBD" />
         <SolidColorBrush x:Key="ButtonPressedForegroundThemeBrush" Color="#FFFFFFFF" />
         <SolidColorBrush x:Key="TextSelectionHighlightColorThemeBrush" Color="#FF357EBD"/>
+        <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush" Color="#FF428BCA"/>
+        <SolidColorBrush x:Key="ListViewItemSelectedForegroundThemeBrush" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="#FF357EBD"/>
+        <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="#FF357EBD"/>
         <x:String x:Key="AppName">Alexandria</x:String>
     </Application.Resources>
 </Application>
