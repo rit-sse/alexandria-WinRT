@@ -40,12 +40,11 @@
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+            <TextBlock x:Name="pageTitle" Text="Check In Book" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <Grid Grid.Row="1" Height="209" VerticalAlignment="Top">
             <TextBlock x:Name="Notice" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" Text="Check In Book" FontSize="50" Margin="505,0"/>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
