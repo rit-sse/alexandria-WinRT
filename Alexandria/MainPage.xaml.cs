@@ -39,7 +39,7 @@ namespace Alexandria
 
         private void GoToAddBook(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(AddBook));
         }
 
         private void GoToViewBooks(object sender, RoutedEventArgs e)
