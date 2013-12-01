@@ -114,22 +114,31 @@ namespace Alexandria
             checkin["patron_barcode"] = Patron.Password;
             checkin["distributor_barcode"] = Distributor.Password;
             string json = JsonConvert.SerializeObject(checkin);
-            HttpClient client = new HttpClient();
-            StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/check_in.json"), theContent);
-            string content = await aResponse.Content.ReadAsStringAsync();
-            ISBN.Text = "";
-            Patron.Password = "";
-            Distributor.Password = "";
-            if ((int)aResponse.StatusCode == 200)
+            try
             {
-                Dictionary<string, Dictionary<string,string>> dictionary = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string,string>>>(content);
-                this.Frame.Navigate(typeof(PutAway), dictionary);
+                HttpClient client = new HttpClient();
+                StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/check_in.json"), theContent);
+                string content = await aResponse.Content.ReadAsStringAsync();
+                ISBN.Text = "";
+                Patron.Password = "";
+                Distributor.Password = "";
+                if ((int)aResponse.StatusCode == 200)
+                {
+                    Dictionary<string, Dictionary<string,string>> dictionary = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string,string>>>(content);
+                    this.Frame.Navigate(typeof(PutAway), dictionary);
+                }
+                else
+                {
+                    Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                    Notice.Text = "Uh Oh. Something Went Wrong.";
+                }
             }
-            else
+            catch (HttpRequestException)
             {
                 Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                Notice.Text = "Uh Oh. Something Went Wrong.";
+                Notice.Text = "You might want to consider connecting to the internet...";
+                return;
             }
         }
     }

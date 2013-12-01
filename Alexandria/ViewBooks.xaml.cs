@@ -93,12 +93,19 @@ namespace Alexandria
         {
             // TODO: Assign a bindable group to Me.DefaultViewModel("Group")
             // TODO: Assign a collection of bindable items to Me.DefaultViewModel("Items")
-            DefaultViewModel["Title"] = "View Books";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage aResponse = await client.GetAsync(new Uri("http://alexandria.ad.sofse.org:8080/books.json"));
-            string content = await aResponse.Content.ReadAsStringAsync();
-            content = content.Replace("full_name", "FullName").Replace("publish_date", "PublishDate").Replace("google_book", "GoogleBook").Replace("img_small", "ImgSmall").Replace("img_thumbnail", "ImgThumbnail");
-            DefaultViewModel["Items"] = JsonConvert.DeserializeObject<List<Book>>(content);
+            try
+            {
+                DefaultViewModel["Title"] = "View Books";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage aResponse = await client.GetAsync(new Uri("http://alexandria.ad.sofse.org:8080/books.json"));
+                string content = await aResponse.Content.ReadAsStringAsync();
+                content = content.Replace("full_name", "FullName").Replace("publish_date", "PublishDate").Replace("google_book", "GoogleBook").Replace("img_small", "ImgSmall").Replace("img_thumbnail", "ImgThumbnail");
+                DefaultViewModel["Items"] = JsonConvert.DeserializeObject<List<Book>>(content);
+            }
+            catch (HttpRequestException)
+            {
+                Notice.Text = "You might want to consider connecting to the internet...";
+            }
             if (e.PageState == null)
             {
                 // When this is a new page, select the first item automatically unless logical page

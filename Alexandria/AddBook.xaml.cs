@@ -113,22 +113,31 @@ namespace Alexandria
             newBook["isbn"] = ISBN.Text;
             newBook["librarian_barcode"] = Librarian.Password;
             string json = JsonConvert.SerializeObject(newBook);
-            HttpClient client = new HttpClient();
-            StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/books.json"), theContent);
-            string content = await aResponse.Content.ReadAsStringAsync();
-            ISBN.Text = "";
-            Librarian.Password = "";
-            if ((int)aResponse.StatusCode == 201)
+            try
             {
-                Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);
-                Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.ForestGreen);
-                Notice.Text = "You succesfully added " + dictionary["title"] + "!";
+                HttpClient client = new HttpClient();
+                StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/books.json"), theContent);
+                string content = await aResponse.Content.ReadAsStringAsync();
+                ISBN.Text = "";
+                Librarian.Password = "";
+                if ((int)aResponse.StatusCode == 201)
+                {
+                    Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(content);
+                    Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.ForestGreen);
+                    Notice.Text = "You succesfully added " + dictionary["title"] + "!";
+                }
+                else
+                {
+                    Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+                    Notice.Text = "Uh Oh. Something Went Wrong.";
+                }
             }
-            else
+            catch (HttpRequestException)
             {
                 Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                Notice.Text = "Uh Oh. Something Went Wrong.";
+                Notice.Text = "You might want to consider connecting to the internet...";
+                return;
             }
         }
     }
