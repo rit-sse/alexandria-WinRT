@@ -130,8 +130,17 @@ namespace Alexandria
                 }
                 else
                 {
+                    Dictionary<string, List<string>> dictionary = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(content);
+                    string notice = "";
+                    foreach (var item in dictionary)
+                    {
+                        foreach (var error in item.Value)
+                        {
+                            notice += error + "\n";
+                        }
+                    }
                     Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-                    Notice.Text = "Uh Oh. Something Went Wrong.";
+                    Notice.Text = notice;
                 }
             }
             catch (HttpRequestException)

@@ -23,9 +23,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Welcome to Alexandria" VerticalAlignment="Center" Height="88" Width="792" FontWeight="Light" FontSize="72"/>
-        </Grid>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Welcome to Alexandria" VerticalAlignment="Center" Height="88"  FontWeight="Light" FontSize="72"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
