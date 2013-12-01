@@ -57,7 +57,7 @@
         <Grid Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <TextBlock x:Name="Notice" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontSize="30" />
         </Grid>
-        <SearchBox x:Name="searchBox" Grid.Row="1" Margin="120,-10,0,15" FontSize="30"/>
+        <SearchBox x:Name="searchBox" Grid.Row="1" Margin="120,-10,0,15" FontSize="30" QuerySubmitted="searchBox_QuerySubmitted" PlaceholderText="Search"/>
         <!-- Vertical scrolling item list -->
         <ListView
             x:Name="itemListView"

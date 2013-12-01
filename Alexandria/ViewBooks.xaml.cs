@@ -75,7 +75,15 @@ namespace Alexandria
                 this.navigationHelper.GoBackCommand.RaiseCanExecuteChanged();
             }
 
-            ImgBorder.Background = (SolidColorBrush)Resources["ListViewItemPlaceholderBackgroundThemeBrush"];
+            if (((List<Book>)DefaultViewModel["Items"]).Count != 0)
+            {
+                ImgBorder.Background = (SolidColorBrush)Resources["ListViewItemPlaceholderBackgroundThemeBrush"];
+            }
+            else
+            {
+                ImgBorder.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            }
+            
         }
 
         /// <summary>
@@ -299,6 +307,23 @@ namespace Alexandria
                 public string ImgSmall { get; set; }
                 public string ImgThumbnail { get; set; }
                 public string Description { get; set; }
+            }
+        }
+
+        private async void searchBox_QuerySubmitted(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
+        {
+            try
+            {
+                DefaultViewModel["Title"] = "View Books";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage aResponse = await client.GetAsync(new Uri("http://alexandria.ad.sofse.org:8080/books.json?search=" + args.QueryText));
+                string content = await aResponse.Content.ReadAsStringAsync();
+                content = content.Replace("full_name", "FullName").Replace("publish_date", "PublishDate").Replace("google_book", "GoogleBook").Replace("img_small", "ImgSmall").Replace("img_thumbnail", "ImgThumbnail");
+                DefaultViewModel["Items"] = JsonConvert.DeserializeObject<List<Book>>(content);
+            }
+            catch (HttpRequestException)
+            {
+                Notice.Text = "You might want to consider connecting to the internet...";
             }
         }
     }

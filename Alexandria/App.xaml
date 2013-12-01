@@ -18,6 +18,8 @@
         <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBorderThemeBrush" Color="#FF357EBD"/>
         <SolidColorBrush x:Key="SearchBoxButtonBackgroundThemeBrush" Color="#FF428BCA"/>
         <SolidColorBrush x:Key="SearchBoxButtonPointerOverBackgroundThemeBrush" Color="#FF357EBD"/>
+        <SolidColorBrush x:Key="SearchBoxHitHighlightForegroundThemeBrush" Color="#FF357EBD"/>
+        <SolidColorBrush x:Key="SearchBoxHitHighlightSelectedForegroundThemeBrush" Color="#FF87C5F9"/>
         <x:String x:Key="AppName">Alexandria</x:String>
     </Application.Resources>
 </Application>
