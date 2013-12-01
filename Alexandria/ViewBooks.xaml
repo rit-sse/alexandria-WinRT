@@ -31,6 +31,7 @@
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -53,16 +54,17 @@
             <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,0,40"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <TextBlock x:Name="Notice" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontSize="30" />
         </Grid>
+        <SearchBox x:Name="searchBox" Grid.Row="1" Margin="120,-10,0,15" FontSize="30"/>
         <!-- Vertical scrolling item list -->
         <ListView
             x:Name="itemListView"
             AutomationProperties.AutomationId="ItemsListView"
             AutomationProperties.Name="Items"
             TabIndex="1"
-            Grid.Row="1"
+            Grid.Row="2"
             Margin="-10,-10,0,0"
             Padding="120,0,0,60"
             ItemsSource="{Binding Source={StaticResource itemsViewSource}}"
@@ -98,7 +100,7 @@
             x:Name="itemDetail"
             AutomationProperties.AutomationId="ItemDetailScrollViewer"
             Grid.Column="1"
-            Grid.RowSpan="2"
+            Grid.RowSpan="3"
             Padding="60,0,66,0"
             DataContext="{Binding SelectedItem, ElementName=itemListView}"
             HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
