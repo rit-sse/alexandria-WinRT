@@ -63,7 +63,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <Button x:Name="CheckOut" Content="Check Out" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="CheckOutBook"/>
+            <Button x:Name="CheckOut" Content="Check Out" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="CheckOut_Click"/>
         </Grid>
     </Grid>
 </Page>

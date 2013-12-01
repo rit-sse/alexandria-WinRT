@@ -105,7 +105,7 @@ namespace Alexandria
 
         #endregion
 
-        private async void AddNewBook(object sender, RoutedEventArgs e)
+        private async void BookAdd_Click(object sender, RoutedEventArgs e)
         {
             Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
             Notice.Text = "Attempting to add book...";

@@ -63,7 +63,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <Button Content="Check In" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="CheckInBook"/>
+            <Button Content="Check In" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="CheckIn_Click"/>
         </Grid>
     </Grid>
 </Page>

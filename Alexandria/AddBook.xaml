@@ -61,7 +61,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3">
-            <Button x:Name="CheckOut" Content="Add Book" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="AddNewBook"/>
+            <Button x:Name="BookAdd" Content="Add Book" HorizontalAlignment="Center" VerticalAlignment="Top" Height="100" Width="200" FontSize="36" FontWeight="Light" Click="BookAdd_Click"/>
         </Grid>
     </Grid>
 </Page>

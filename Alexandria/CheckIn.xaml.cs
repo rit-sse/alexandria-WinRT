@@ -105,7 +105,7 @@ namespace Alexandria
 
         #endregion
 
-        private async void CheckInBook(object sender, RoutedEventArgs e)
+        private async void CheckIn_Click(object sender, RoutedEventArgs e)
         {
             Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
             Notice.Text = "Attempting check in...";

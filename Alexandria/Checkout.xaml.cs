@@ -106,7 +106,7 @@ namespace Alexandria
 
         #endregion
 
-        private async void CheckOutBook(object sender, RoutedEventArgs e)
+        private async void CheckOut_Click(object sender, RoutedEventArgs e)
         {
             Notice.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
             Notice.Text = "Attempting check out...";
