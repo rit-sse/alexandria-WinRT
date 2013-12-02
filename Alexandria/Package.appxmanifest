@@ -30,7 +30,7 @@
             Square30x30Logo="Assets\SmallLogo.png"
             Description="Alexandria"
             ForegroundText="light"
-            BackgroundColor="#464646">
+            BackgroundColor="#FFFFFF">
             <m2:SplashScreen Image="Assets\SplashScreen.png" />
         </m2:VisualElements>
     </Application>
