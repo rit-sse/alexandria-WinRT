@@ -52,12 +52,16 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                <Image x:Name="LeftImage" HorizontalAlignment="Center" Height="250"/>
+                <Border x:Name="LeftBorder" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="200" MinHeight="250">
+                    <Image x:Name="LeftImage" HorizontalAlignment="Center" Height="250"/>
+                </Border>
                 <TextBlock x:Name="LeftTitle" Text="Left Title" FontSize="30" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="LeftLCC" Text="Left LCC" FontSize="30" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Image x:Name="RightImage" HorizontalAlignment="Center" Height="250"/>
+                <Border x:Name="RightBorder" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="200" MinHeight="250">
+                    <Image x:Name="RightImage" HorizontalAlignment="Center" Height="250"/>
+                </Border>
                 <TextBlock x:Name="RightTitle" Text="Right Title" FontSize="30" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="RightLCC" Text="Right LCC" FontSize="30" HorizontalAlignment="Center"/>
             </StackPanel>

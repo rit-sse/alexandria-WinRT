@@ -97,19 +97,51 @@ namespace Alexandria
             navigationHelper.OnNavigatedTo(e);
             var dictionary = (Dictionary<string, Dictionary<string, string>>)e.Parameter;
             Shelf.Text = "Shelf: " + dictionary["shelf"]["number"];
-            LeftTitle.Text = dictionary["left"]["title"];
-            LeftLCC.Text = dictionary["left"]["lcc"];
+            if (dictionary["left"]["title"] == "")
+            {
+                LeftTitle.Text = "This book is";
+                LeftLCC.Text = "the first book on the shelf";
+            }
+            else
+            {
+                LeftTitle.Text = dictionary["left"]["title"];
+                LeftLCC.Text = dictionary["left"]["lcc"];
+            }
             BitmapImage bitmapImageLeft = new BitmapImage();
-            LeftImage.Height = bitmapImageLeft.DecodePixelHeight = 250; 
-            bitmapImageLeft.UriSource = new Uri(dictionary["left"]["image"]);
-            LeftImage.Source = bitmapImageLeft;
+            LeftImage.Height = bitmapImageLeft.DecodePixelHeight = 250;
+            try
+            {
+                bitmapImageLeft.UriSource = new Uri(dictionary["left"]["image"]);
+                LeftImage.Source = bitmapImageLeft;
+                LeftBorder.Background = new SolidColorBrush(Windows.UI.Colors.White);
+
+            }
+            catch (Exception) {
+                LeftBorder.Background = (SolidColorBrush)Resources["ListViewItemPlaceholderBackgroundThemeBrush"];
+            }
             
-            RightTitle.Text = dictionary["right"]["title"];
-            RightLCC.Text = dictionary["right"]["lcc"];
+            if(dictionary["right"]["title"] == "")
+            {   
+                RightTitle.Text = "This book is";
+                RightLCC.Text = "the last book on the shelf";
+            }
+            else
+            {
+                RightTitle.Text = dictionary["right"]["title"];
+                RightLCC.Text = dictionary["right"]["lcc"];
+            }
             BitmapImage bitmapImageRight = new BitmapImage();
             RightImage.Height = bitmapImageRight.DecodePixelHeight = 250;
-            bitmapImageRight.UriSource = new Uri(dictionary["right"]["image"]);
-            RightImage.Source = bitmapImageRight;
+            try
+            {
+                bitmapImageRight.UriSource = new Uri(dictionary["right"]["image"]);
+                RightImage.Source = bitmapImageRight;
+                RightBorder.Background = new SolidColorBrush(Windows.UI.Colors.White);
+
+            }
+            catch (Exception) {
+                RightBorder.Background = (SolidColorBrush)Resources["ListViewItemPlaceholderBackgroundThemeBrush"];
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
