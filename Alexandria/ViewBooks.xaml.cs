@@ -105,7 +105,7 @@ namespace Alexandria
             {
                 DefaultViewModel["Title"] = "View Books";
                 HttpClient client = new HttpClient();
-                HttpResponseMessage aResponse = await client.GetAsync(new Uri("http://alexandria.ad.sofse.org:8080/books.json"));
+                HttpResponseMessage aResponse = await client.GetAsync(new Uri("http://alexandria.ad.sofse.org/books.json"));
                 string content = await aResponse.Content.ReadAsStringAsync();
                 content = content.Replace("full_name", "FullName").Replace("publish_date", "PublishDate").Replace("google_book", "GoogleBook").Replace("img_small", "ImgSmall").Replace("img_thumbnail", "ImgThumbnail");
                 DefaultViewModel["Items"] = JsonConvert.DeserializeObject<List<Book>>(content);

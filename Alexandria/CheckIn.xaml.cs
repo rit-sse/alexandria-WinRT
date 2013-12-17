@@ -118,7 +118,7 @@ namespace Alexandria
             {
                 HttpClient client = new HttpClient();
                 StringContent theContent = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org:8080/check_in.json"), theContent);
+                HttpResponseMessage aResponse = await client.PostAsync(new Uri("http://alexandria.ad.sofse.org/check_in.json"), theContent);
                 string content = await aResponse.Content.ReadAsStringAsync();
                 ISBN.Text = "";
                 Patron.Password = "";
